@@ -1,10 +1,10 @@
 package com.nology.controlflow_02;
 
 /**
- *   All challenges in this repository are separated into three levels: Foundation, Intermediate, and Advanced.
- *   The expectation is to complete all Foundation level challenges, with Intermediate and upwards pushing your knowledge
- *   and may require you to google things in order to solve them. If you find an answer online somewhere, be kind and
- *   share it with the group!
+ * All challenges in this repository are separated into three levels: Foundation, Intermediate, and Advanced.
+ * The expectation is to complete all Foundation level challenges, with Intermediate and upwards pushing your knowledge
+ * and may require you to google things in order to solve them. If you find an answer online somewhere, be kind and
+ * share it with the group!
  */
 public class Challenge {
     public Challenge() {
@@ -20,7 +20,7 @@ public class Challenge {
      * @return returns a string which is the concatenation of the 2 parameters
      */
     public String getFullName(String firstName, String lastName) {
-        return "";
+        return firstName + " " + lastName;
     }
 
     /***
@@ -31,7 +31,7 @@ public class Challenge {
      * @return returns a boolean based on whether the number is between 0 and the range limit
      */
     public boolean isWithinRange(int number, int rangeLimit) {
-        return false;
+        return number <= rangeLimit && number >= 0;
     }
 
 
@@ -50,9 +50,20 @@ public class Challenge {
      * @return returns the result of the equation
      */
     public int stringCalculator(int numberOne, int numberTwo, String operator) {
-        return -1;
+        if (numberOne < 0 || numberTwo < 0) return -1;
+        switch (operator) {
+            case "*":
+                return numberOne * numberTwo;
+            case "/":
+                return numberOne / numberTwo;
+            case "-":
+                return numberOne - numberTwo;
+            case "+":
+                return numberOne + numberTwo;
+            default:
+                return -1;
+        }
     }
-
 
     // -------------- INTERMEDIATE --------------
 
@@ -70,7 +81,8 @@ public class Challenge {
      * @return If we need to wake up or not based on the conditions above.
      */
     public boolean shouldWakeUp(boolean barking, int hourOfDay) {
-        return false;
+        if (hourOfDay < 0 || hourOfDay > 23) return false;
+        return (hourOfDay < 8 || hourOfDay > 22) && barking;
     }
 
     /***
@@ -83,7 +95,12 @@ public class Challenge {
      * character in the string: a"
      */
     public String getMiddleCharacter(String word) {
-        return "";
+        int halfWay = word.length() / 2;
+
+        if (word.equals("") || word.contains(" ")) return "Invalid Input";
+        if (halfWay % 2 == 0) return word.substring(halfWay - 1, halfWay + 1);
+
+        return word.substring(halfWay, halfWay + 1);
     }
 
 
@@ -99,7 +116,10 @@ public class Challenge {
      * @return returns a string in the format above if the input is valid, or "Invalid value"
      */
     public String printMegaBytesAndKiloBytes(int kiloBytes) {
-        return "";
+        if (kiloBytes < 0) return "Invalid Value";
+        int megaByte = kiloBytes / 1024;
+        int remainder = kiloBytes % 1024;
+        return kiloBytes + " KB = " + megaByte + " MB and " + remainder + " KB";
     }
 
     // -------------- ADVANCED --------------
@@ -121,6 +141,12 @@ public class Challenge {
      * @return returns the total amount after x number of years (including the initial investment)
      */
     public String calculateReturn(int initialInvestment, int years, double rateOfInterest) {
-        return "";
+        if(initialInvestment < 0) return "Invalid investment";
+        if(years < 0) return "Invalid years";
+        if(rateOfInterest < 0 || rateOfInterest >= 1) return "Invalid rate of interest";
+
+        double result = initialInvestment * Math.pow((1 + rateOfInterest), years);
+        int roundedResult = (int) Math.round(result);
+        return "You now have " + roundedResult;
     }
 }

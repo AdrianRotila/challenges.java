@@ -18,71 +18,31 @@ package com.nology.classes_03;
 
 
 public class Math {
-    /**
-     * Create 1 private field below:
-     * - PI is a double and should be set to 3.141592653589793 by default
-     */
 
-    /**
-     * Create getters and setters for the fields above.
-     *
-     * They will need to be named:
-     * - getPI
-     * - setPI
-     *
-     * Each getter gets the corresponding private field.
-     * Each setter sets the corresponding private field.
-     *
-     * setPI should make sure the incoming number is between 3.1 and 3.2
-     * If it isn't it should not update the PI field
-     */
+    private double pi = 3.141592653589793;
 
-    /**
-     * Complete the min method
-     *
-     * This should:
-     * - be a public method
-     * - return a double
-     * - be called min
-     *
-     * It returns the smallest of two given numbers
-     *
-     *
-     * @param num1 The first number to check
-     * @param num2 The second number to check
-     * @return double The smaller of the two numbers
-     */
+    public double getPI() {
+        return pi;
+    }
 
-    /**
-     * Complete the max method
-     *
-     * This should:
-     * - be a public method
-     * - return a double
-     * - be called max
-     *
-     * It returns the largest of two given numbers
-     *
-     * @param num1 The first number to check
-     * @param num2 The second number to check
-     * @return double The larger of the two numbers
-     */
+    public void setPI(double pi) {
+        if(pi > 3.1 && pi < 3.2) this.pi = pi;
+    }
 
-    /**
-     * Complete the calculateCircleArea method
-     *
-     * This should:
-     * - be a public method
-     * - return a double
-     * - be called calculateCircleArea
-     *
-     * It takes a given radius and uses the PI field to calculate the are of the circle
-     *
-     * If the radius is less than or equal to 0 it shoudl return -1
-     *
-     * @param radius The radius of the circle
-     * @return double The area of the circle
-     */
+    public double min (double num1, double num2) {
+        return java.lang.Math.min(num1, num2);
+    }
+
+    public double max (double num1, double num2) {
+        return java.lang.Math.max(num1, num2);
+    }
+
+    public double calculateCircleArea (double radius) {
+        if(radius <= 0) return -1;
+        return (radius * radius) * pi;
+    }
+
+    public
 
     /**
      * Complete the pow method
