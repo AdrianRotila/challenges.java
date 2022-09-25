@@ -109,10 +109,10 @@ class MathTest {
     // Testing pow
     // Uncomment the tests below when you have completed the pow method
 
-//    @Test
-//    void pow_ValidInputs_ReturnsCorrectNumber() {
-//        double result = math.pow(2, 5);
-//        assertEquals(32.0, result);
-//    }
+    @Test
+    void pow_ValidInputs_ReturnsCorrectNumber() {
+        double result = math.pow(2, 5);
+        assertEquals(32.0, result);
+    }
 
 }
